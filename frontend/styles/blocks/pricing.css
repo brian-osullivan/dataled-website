@@ -1,0 +1,40 @@
+.pricing main button:not(nav) {
+    /* margin-block: auto; */
+    width: 100%;
+}
+
+
+/* to vertically center the `list-style-image` */
+
+.pricing .card li {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs-s)
+  }
+
+.pricing .card li::before {
+    content: "";
+    background-image: url("/images/svg/check.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 24px;
+    width: 24px;
+    min-height: 24px;
+    min-width: 24px;
+}
+
+
+.pricing.grid {
+    align-items: center;
+}
+
+#pricing-cro .pricing.grid {
+    grid-template-columns: repeat(auto-fit, minmax(clamp(20rem, 40vw, 30rem), 1fr));
+    align-items: stretch;
+}
+
+#pricing-consulting .card>ul {
+    background-color: var(--color-light);
+    padding: var(--space-s-m);
+}

@@ -1,0 +1,28 @@
+/* 
+FLOW UTILITY
+Like the Every Layout stack: https://every-layout.dev/layouts/stack/
+Info about this implementation: https://piccalil.li/quick-tip/flow-utility/ 
+*/
+.flow > * + * {
+  margin-top: var(--flow-space, 1em);
+}
+
+/* .flow :is(h1, h2, h3, blockquote) {
+  --flow-space: 1.5em;
+} */
+
+.flow :is(h1, h2, h3) + * {
+  --flow-space: 0.75em;
+}
+
+.flow :is(.sidebar) {
+  --flow-space: var(--space-m-l);
+}
+
+.post-header {
+  --flow-space: 1rem;
+}
+
+.pricing ul {
+  --flow-space: 1em;
+}

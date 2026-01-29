@@ -1,0 +1,14 @@
+.social-share {
+    --flow-space: 1rem;
+    display: flex;
+    flex-direction: row;
+    gap: var(--gutter);
+    justify-content: space-around;
+    align-items: baseline;
+    /* max-width: 25rem; */
+}
+
+.social-share img {
+    width: 1.5rem;
+    height: 1.5rem;
+}

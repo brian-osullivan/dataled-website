@@ -1,0 +1,31 @@
+.logo-banner {
+    --flow-space: 0;
+    background-color: var(--gray-12);
+    padding-block: var(--space-xs-s);
+}
+
+.logo-banner h2 {
+    text-align: center;
+}
+
+.logo-banner ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gutter);
+    align-items: baseline;
+    justify-content: space-around;
+    list-style: none;
+}
+
+.logo-banner img {
+    height: 3rem;
+}
+
+.logo-banner-light {
+    background-color: var(--color-white);
+    color: var(--color-dark);
+    padding-inline: var(--space-xs-s);
+}
+.logo-banner-light img {
+    height: 2rem;
+}

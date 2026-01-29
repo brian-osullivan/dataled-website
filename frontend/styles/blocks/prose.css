@@ -1,0 +1,47 @@
+.prose {
+  --flow-space: var(--space-m-l);
+  --wrapper-max-width: 55rem;
+}
+
+.prose :is(p, li) {
+  font-family: var(--font-serif);
+  line-height: 1.75;
+}
+
+.prose :is(h2, h3, h4) + * {
+  --flow-space: var(--space-s-m);
+}
+
+.prose header {
+  --flow-space: 1rem;
+}
+
+.prose blockquote {
+  display: flex;
+  gap: var( --space-xs-s);
+  font-style: italic;
+  font-size: var(--size-step-1);
+  border: 1px solid var(--gray-3);
+  border-radius: var(--border-radius);
+  padding: var(--space-m-l);
+}
+
+.prose img {
+  border: 1px solid var(--gray-3);
+  border-radius: var(--border-radius);
+}
+
+.prose blockquote::before {
+  content: url(/images/svg/quote-up.svg);
+  width: 3rem;
+  height: 3rem;
+}
+
+blockquote {
+  font-style: italic;
+  font-size: var(--size-step-1);
+}
+
+.prose blockquote > * + * {
+  margin-top: var(--space-m-l);
+}

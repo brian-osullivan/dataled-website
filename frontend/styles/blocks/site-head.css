@@ -1,0 +1,51 @@
+/* ***************** */
+/* Site Header and Navigation styling */
+/* ***************** */
+
+body > header {
+  color: var(--color-dark);
+  font-size: var(--size-step-0);
+}
+
+body > header > nav {
+    /* line-height: 2; */
+    padding-block: var(--gutter);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--gutter);
+    font-weight: 600;
+}
+
+header > nav a,
+header > nav a:visited {
+  display: inline-block;
+  text-decoration: none;
+}
+
+header > nav a:hover {
+  text-decoration: underline solid var(--color-dark) 2px;
+  text-underline-offset: 0.25em;
+  cursor: pointer;
+}
+
+
+/* Use flexbox to allow items to wrap, as needed */
+header > nav ul,
+header > nav ol {
+  align-content: space-around;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  gap: var(--gutter);
+}
+  
+/* List items are inline elements, make them behave more like blocks */
+header > nav ul li,
+header > nav ol li {
+  display: inline-block;
+}

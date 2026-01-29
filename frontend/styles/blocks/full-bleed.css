@@ -1,0 +1,5 @@
+.full-bleed {
+    background-color: var(--surface-3-light);
+    padding: var(--space-s-m);
+    text-align: center;
+}
