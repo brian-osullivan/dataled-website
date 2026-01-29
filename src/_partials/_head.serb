@@ -1,6 +1,15 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="icon" href="{{ site.metadata.favicon }}" type="image/x-icon" />
+<script>
+(function() {
+  // Execute immediately, don't wait for DOM
+  var gclid = new URLSearchParams(window.location.search).get('gclid');
+  if (gclid) {
+    document.cookie = 'pm_gclid=' + gclid + '; path=/; max-age=7776000; SameSite=Lax';
+  }
+})();
+</script>
 
 {%= seo %}
 
