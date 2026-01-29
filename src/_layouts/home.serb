@@ -1,0 +1,11 @@
+---
+layout: default
+---
+
+{%@ 'hero'%}
+{%@ 'logo_banner'%}
+{%@ 'home_features'%}
+{%@ 'home_services'%}
+{%@ 'home_background'%}
+{%@ 'home_testimonials'%}
+{%@ 'home_results'%}

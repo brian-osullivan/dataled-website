@@ -1,0 +1,23 @@
+<section id="results" class="wrapper flow region">
+    <header class="flow centered">
+        <h2>
+            Results
+        </h2>
+    </header>
+
+    <div class="grid text-small" data-layout='50-50'>
+        {% for result in site.data.home.results %}
+            <div class="card-light border-0 sidebar">
+                <div class="center text-center">
+                    <p class="text-large text-bold text-center">{{ result.result }}</p>
+                    <p>{{ result.type }}</p>
+                </div>
+                <div class="flow">
+                    <p>{{ result.text }}</p>
+                </div>
+            </div>
+        {% end %}
+
+    </div>
+
+</section>

@@ -1,0 +1,36 @@
+---
+layout: default
+---
+
+<section class="hero-about">
+    <div class="container">
+        <h1>About Brian O'Sullivan</h1>
+    </div>
+</section>
+
+<section class="container">
+    <div class="content-grid">
+        <div class="profile-section">
+            <img src="https://dataled.co/images/brian-o-sullivan-vertical.png" alt="Brian O'Sullivan" class="profile-image">
+        </div>
+
+        <div class="bio-section">
+            <p class="bio-text">With nearly two decades in tech I have experience with FAANG all the way to bootstrapped startups with <1$m ARR. I started my career at Google working with Europe's largest online brands on ads and analytics for 9 years, then as a Senior Growth Product Manager at Dropbox running experiments worth millions in revenue.</p>
+
+            <p class="bio-text">After leading growth at two Series A SaaS companies (including taking Leadfeeder from 0% to 100% YOY growth), I now work as an independent consultant specializing in analytics, optimization, and strategy.</p>
+
+            <p class="bio-text">I've spoken about growth at events across Dublin, Edinburgh, Brussels, Stockholm, London, Amsterdam, and Moscow, and have guest lectured on MSc courses.</p>
+
+            <p class="bio-text">I live in Ireland with my wife and two kids. When I'm not working, you'll find me outdoors—surfing, mountain biking, or training for my next triathlon.</p>
+   
+</div>
+    </div>
+
+    <div class="video-section">
+        <h3 class="video-title">Watch me talk about how Dropbox does A/B testing with Karl from Conversion Rate Experts:</h3>
+        <div class="video-wrapper">
+            <iframe src="https://www.youtube.com/embed/aQy7nJ-PrDk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+
+</section>

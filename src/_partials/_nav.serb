@@ -1,0 +1,17 @@
+<header class="">
+    <nav class="wrapper">
+        <a href="/" class=""><img src="/images/logo-dark.svg"></a>
+        <ul>
+            {% for link in links %}
+            <li><a href="{{ link.url | relative_url }}">{{ link.title }}</a></li>
+            {% end %}
+        </ul>
+      
+           <a class="ml-onclick-form" href="javascript:void(0)" onclick="ml('show', 'm3lw7f', true)">
+                <button>
+                    {{ site.data.home.hero.button_text }}
+                </button> 
+            </a>
+       
+    </nav>
+</header>

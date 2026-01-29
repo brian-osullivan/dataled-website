@@ -1,0 +1,9 @@
+<section class="logo-banner logo-banner-light">
+    <ul>
+        <li class="card border-0"><img src="/images/svg/google.svg" alt="Google logo"></li>
+        <li class="card border-0"><img src="/images/svg/dropbox.svg" alt="Dropbox logo"></li>
+        <li class="card border-0"><img src="/images/svg/teamwork.svg" alt="Teamwork logo"></li>
+        <li class="card border-0"><img src="/images/svg/leadfeeder.svg" alt="Leadfeeder logo"></li>
+        <li class="card border-0"><img src="/images/svg/process.svg" alt="Process.st logo"></li>
+    </ul>
+</section>

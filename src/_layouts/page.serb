@@ -1,0 +1,16 @@
+---
+layout: default
+---
+
+<section class="wrapper flow region mx-auto">
+
+  <header>
+    <h1>{{ data.title }}</h1>
+    <p>{{ data.description }}</p>
+  </header>
+
+  <article class="flow prose content">
+      {%= yield %}
+  </article>
+    
+</section>

@@ -1,0 +1,12 @@
+<div class="flow">
+    <p class="text-small">Share post</p>
+
+    <div class="card-light border-0 social-share">
+        <a href="https://twitter.com/intent/tweet?url={{ site.metadata.url }}{{ data.permalink | uri_escape }}&text={{ data.title }}" target="blank" rel="noopener noreferrer"><img src="/images/svg/twitter.svg" alt="Share Page on Twitter"></a>
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ site.metadata.url }}{{ data.permalink | uri_escape }}&title={{ data.title }}" target="blank" rel="noopener noreferrer"><img src="/images/svg/linkedin.svg" alt="Share Page on LinkediIn"></a>
+        <a href="https://www.facebook.com/sharer.php?u={{ site.metadata.url }}{{ data.permalink | uri_escape }}" target="blank" rel="noopener noreferrer"><img src="/images/svg/facebook.svg" alt="Share Page on Facebook"></a>
+        <a href="mailto:?body={{ data.title }}%0A{{ site.metadata.url }}&amp;subject={{ data.title }}" target="_blank" rel="noopener"><img src="/images/svg/email.svg" alt="Share Page by Email"></a>
+    </div>
+</div>
+
+{%# <%# https://css-tricks.com/simple-social-sharing-links/ %> %}

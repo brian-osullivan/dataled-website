@@ -1,0 +1,29 @@
+<section id="pricing-consulting" class="wrapper pricing flow region">
+
+    <article class="grid pricing mx-auto" data-layout='50-50'>
+
+        <header class="flow">
+            <h2>Google Analytics</h2>
+            <p>Get a best in class Google Analytics setup.</p>
+        </header>
+
+        <div class="card flow">
+            <ul class="card border-0 text-small flow" role="list">
+                <li>Advanced GA4 setup</li>
+                <li>Advanced Google Tag Manager setup</li>
+                <li>Custom reports in GA & Looker Studio</li>
+                <li>BigQuery syncing</li>
+                <li>One-off analysis projects</li>
+            </ul>
+        <a class="ml-onclick-form" href="javascript:void(0)" onclick="ml('show', 'XBb1gI', true)">
+            <button>
+                    See Pricing
+                </button>
+            </a>
+        </div>
+
+        <img src="/images/svg/pricing-ga.svg" alt="analytics clipart">
+
+    </article>
+
+</section>

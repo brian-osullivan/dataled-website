@@ -1,0 +1,36 @@
+---
+layout: default
+---
+
+<section class="wrapper flow region">
+
+    <div class="sidebar">
+
+        {%@ 'all_posts' %}
+
+        <header class="flow post-header">
+            <p class="text-small">Published on {{ data.date | date_to_string: "ordinal", "US" }} in {{ resource.data.category }}</p>
+            <h1>{{ resource.data.title }}</h1>
+            <div class="author_bio">        
+                <img src="{{ site.data.authors.brian.image }}">
+                <div>
+                    <p class="text-small">{{ site.data.authors.brian.title }}</p>
+                    <p class="text-small">{{ site.data.authors.brian.bio }}</p>
+                </div>
+            </div>
+        </header>
+
+    </div>
+
+    <div class="sidebar flow">
+
+        {%@ 'social_share' %}
+
+        <article class="flow prose content">
+
+            {%= yield %}
+            
+        </article>
+
+    </div>
+</section>

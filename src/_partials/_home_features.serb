@@ -1,0 +1,14 @@
+<section class="wrapper flow">
+
+    <article class="grid region">
+        <div>
+            <h2>
+                {{ site.data.home.features.grid_1.title }}
+            </h2>
+        </div>
+        <div class="flow">
+            {{ site.data.home.features.grid_1.textarea | markdownify }}
+        </div>
+    </article>
+
+</section>

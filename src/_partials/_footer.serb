@@ -1,0 +1,46 @@
+<footer class="">
+
+  <div class="site-foot wrapper flow grid">
+    <div class="flow">
+      <a href="/">
+        <img src="/images/logo-white.svg">
+      </a>
+      <p>I'll help you run experiments and make sure you are using data to scale up your revenue.</p>
+      <p>You can reach me at <a href="mailto:brian@dataled.co">brian@dataled.co</a></p>
+    </div>
+    <nav>
+      <div>
+        <p>Resources</p>
+        <ul role="list">
+          <li><a href="/">Home</a></li>
+          <li><a href="/guides">Guides</a></li>
+          <li><a href="/blog">Blog</a></li>
+        </ul>
+      </div>
+      <div>
+        <p>Services</p>
+          <ul role="list">
+          <li><a href="/blog/cro-services/">Optimization Services</a></li>
+          <li><a href="/blog/ga4-agency/">Analytics Services</a></li>
+          <li><a href="/blog/growth-consulting/">Consulting</a></li>
+          <li><a href="/hippa-compliant-web-analytics/">HIPAA analytics</a></li>
+        </ul>
+      </div>
+    </nav>
+   <a href="/audit">
+      <button>
+        Book a free audit
+      </button>
+    </a>
+  </div>
+
+<!-- MailerLite Universal -->
+<script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '492973');
+</script>
+<!-- End MailerLite Universal -->
+</footer>

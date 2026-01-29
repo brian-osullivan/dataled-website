@@ -1,0 +1,11 @@
+---
+layout: default
+---
+
+{%@ "pricing_cro" %}
+{%@ "logo_banner_light" %}
+{%@ "pricing_consulting" %}
+{%@ "pricing_ga" %}
+
+<!-- ConvertKit form script, for Pricing -->    
+<script async data-uid="06d585873d" src="https://deft-inventor-6904.ck.page/06d585873d/index.js"></script>

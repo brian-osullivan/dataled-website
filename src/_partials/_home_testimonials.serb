@@ -1,0 +1,26 @@
+<section id="testimonials" class="wrapper flow region">
+
+    <header class="flow centered">
+        <h2>
+            Don't just take my word for it
+        </h2>
+    </header>
+
+    <div class="grid" >
+
+        {% for testimonial in site.data.home.testimonials %}
+            <div class="card border-0 testimonial text-gray">
+                <blockquote>{{ testimonial.text }}</blockquote>
+                <div>
+                    <img class="round" src="{{ testimonial.image }}" alt="Shoe-G Ueyama portrait">
+                    <div class="text-small">
+                        <p class="text-bold">{{ testimonial.name }}</p>
+                        <p>{{ testimonial.position }}</p>
+                    </div>
+                </div>
+            </div>
+        {% end %}
+
+    </div>
+
+</section>

@@ -1,0 +1,23 @@
+<section class="wrapper grid hero">
+
+    <div class="flow">
+
+        <h1>
+            {{ site.data.home.hero.title }}
+            <img class="emoji" src="/images/emoji/1F680.svg" alt="rocket emoji">
+        </h1>
+        <p>{{ site.data.home.hero.textarea }}</p>
+
+        <p>{{ site.data.home.hero.cta_text }}</p>
+
+        <div class="flex-col">
+            <a data-formkit-toggle="3d3f9c1d1f" href="/audit">
+                <button>
+                    {{ site.data.home.hero.button_text }}
+                </button>
+            </a>
+        </div>
+        
+    </div>
+
+</section>

@@ -1,0 +1,52 @@
+    <section class="section services-section">
+            <div class="wrapper">
+                <h2 style="text-align: center;">How I can help</h2>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>IDENTIFY: Find Your Revenue Leaks</h3>
+                        
+                        <h4>Analytics Foundation</h4>
+                        <p>Get the measurement infrastructure to spot revenue leaks and track optimization results.</p>
+                        <ul>
+                            <li>GA4 setup optimized for SaaS and lead-gen conversion tracking</li>
+                            <li>Custom dashboards showing where you're losing revenue</li>
+                            <li>Monthly performance reviews with actionable insights</li>
+                        </ul>
+
+                        <h4>User Research & Analysis</h4>
+                        <p>Discover why users aren't converting through qualitative and quantitative research.</p>
+                        <ul>
+                            <li>User interviews to understand conversion barriers</li>
+                            <li>Behavioral analysis of trial user journeys</li>
+                            <li>Conversion funnel audits identifying biggest leaks</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <h3>FIX: Plug Your Revenue Leaks</h3>
+                        
+                        <h4>Optimization</h4>
+                        <p>Run systematic A/B tests to fix the bottlenecks costing you the most revenue.</p>
+                        <ul>
+                            <li>A/B testing strategy with prioritized experiment roadmap</li>
+                            <li>Complete test setup, monitoring, and analysis</li>
+                            <li>Implementation support with your development team</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <h3>ADVISE: Strategic Growth Direction</h3>
+                        
+                        <h4>Growth Strategy Consulting</h4>
+                        <p>Get expert guidance on where to focus your growth efforts for maximum revenue impact.</p>
+                        <ul>
+                            <li>Weekly strategy sessions to guide growth decisions</li>
+                            <li>Ongoing Slack access for tactical questions</li>
+                            <li>Growth roadmap with prioritized initiatives</li>
+                        </ul>
+                    </div>
+                </div>
+            
+            </div>
+        </section>

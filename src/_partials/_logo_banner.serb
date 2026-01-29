@@ -1,0 +1,8 @@
+<section class="logo-banner">
+    <ul>
+        <li><img src="/images/svg/google-white.svg" alt="Google logo"></li>
+        <li><img src="/images/svg/dropbox-white.svg" alt="Dropbox logo"></li>
+        <li><img src="/images/svg/teamwork-white.svg" alt="Teamwork logo"></li>
+        <li><img src="/images/svg/leadfeeder-white.svg" alt="Leadfeeder logo"></li>
+    </ul>
+</section>

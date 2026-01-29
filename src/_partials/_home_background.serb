@@ -1,0 +1,25 @@
+<section id="background" class="wrapper flow region">
+    <header class="flow centered">
+        <h2>
+            My Background
+        </h2>
+    </header>
+
+    <div class="grid  text-small" data-layout='50-50'>
+
+        {% for exp in site.data.home.background %}
+            <div class="card-light border-0 sidebar">
+                <div class="center">
+                    <p class="text-large text-bold text-center">{{ exp.years }}</p>
+                    <p>YEARS</p>
+                </div>
+                <div class="flow">
+                    <img src="{{ exp.image }}" alt="{{ exp.image_alt }}">
+                    <p>{{ exp.textarea }}</p>
+                </div>
+            </div>
+        {% end %}
+
+    </div>
+
+</section>
