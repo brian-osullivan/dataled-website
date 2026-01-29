@@ -1,0 +1,189 @@
+# Read the CloudCannon documentation for more information on how to use this file:
+# https://cloudcannon.com/documentation/articles/setting-global-configuration/?ssg=Bridgetown
+
+# Collections are related sets of content files, typically grouped by folder.
+# Here you can define your collections, as well as any
+# CloudCannon configuration specific to those collections.
+collections_config:
+  posts:
+    path: _blog
+    name: "Blog"
+    singular_name: "Post"
+    description: Collection of blog posts.
+    output: true
+    url: /blog/[slug]/
+    icon: event_available
+    _enabled_editors:
+      - content
+      - data
+    schemas:
+      default:
+        path: schemas/post.md
+    _inputs:
+      permalink:
+        label: Permalink
+        type: url
+        comment: Permalink in the format `/blog/post-title/`
+  guides:
+    path: _guides
+    description: Collection of guides.
+    output: true
+    url: /guides/[slug]/
+    icon: wysiwyg
+    _inputs:
+      permalink:
+        label: Permalink
+        type: url
+        comment: Permalink in the format `/guides/guide-title/`
+    _enabled_editors:
+      - content
+      - data
+    schemas:
+      default:
+        path: schemas/guide.md
+  pages:
+    path: _pages
+    description: Collection of separate pages.
+    output: true
+    url: /[slug]/
+    icon: wysiwyg
+    _inputs:
+      permalink:
+        label: Permalink
+        type: url
+        comment: Permalink in the format `/page-title/`
+    _enabled_editors:
+      - content
+      - data
+    schemas:
+      default:
+        path: schemas/page.md
+  data:
+    path: _data
+    name: "Data"
+    icon: data_usage
+
+# Control which collections are displayed in the CloudCannon site navigation,
+# and how those collections are grouped.
+collection_groups:
+
+# Control which data sets are available to populate select and multiselect inputs.
+data_config:
+    authors:
+      path: '_data/authors.yml'
+    categories:
+      path: '_data/categories.yml'
+    navigation:
+      path: '_data/nav.yml'
+
+# Base path to your source files, relative to the root folder of your repository.
+source: 'src'
+
+# Write to ./output/_cloudcannon/info.json instead of ./_cloudcannon/info.json
+output: 'output'
+
+_enabled_editors:
+  - content
+  - data
+
+# The locations of various types of files within your site.
+# Each path is relative to your site's source folder.
+paths:
+  data: '_data'
+  collections: ''
+  layouts: '_layouts'
+  includes: '_partials'
+  static: ''
+  uploads: 'images'
+
+# Lets you control the look and behaviour of the Source Editor.
+source_editor:
+
+# Markdown processor.
+generator:
+  metadata:
+    markdown: kramdown
+
+# Timezone of your site in IANA format. This is used by date and datetime inputs
+# within the CloudCannon Data Editor.
+timezone: Europe/Dublin
+
+_editables:
+  image:
+    image_size_attributes: false
+  content:
+    blockquote: true
+    bold: true
+    format: p h1 h2 h3 h4 h5 h6 pre address div
+    italic: true
+    underline: true
+    link: true
+    bulletedlist: true
+    numberedlist: true
+    indent: true
+    outdent: true
+    code: true
+    embed: true
+    table: true
+    image: true
+    image_size_attributes: false
+
+_inputs:
+  date:
+    type: datetime
+    instance_value: NOW
+  author:
+    type: select
+    options:
+      values: data.authors
+  category:
+    type: select
+    options:
+      values: data.categories
+  image:
+    type: file
+    options:
+      accepts_mime_types:
+        - image/png
+        - image/svg+xml
+        - image/jpeg
+      image_size_attributes: false
+      mime_type: image/jpeg
+  layout:
+    hidden: true
+  title:
+    type: text
+  text:
+    type: text
+  textarea:
+    type: textarea
+  years:
+    type: number
+  name:
+    type: text
+  position:
+    type: text
+  result:
+    type: text
+  type:
+    type: text
+
+results:
+  title: Results
+  label: Results
+  type: array
+  _inputs:
+      result:
+        type: text
+      type:
+        type: text
+      text:
+        type: text
+
+testimonials:
+  title: Testimonials
+  label: Testimonials
+  type: array
+  _inputs:
+    text:
+      type: textarea
