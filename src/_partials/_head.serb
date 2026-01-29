@@ -15,4 +15,411 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-MXQRD7Z');</script>
 <!-- End Google Tag Manager -->
 
+<script>
+  (function() {
+  'use strict';
+  
+  // Configuration
+  var CONFIG = {
+    apiUrl: 'https://tracking.dataled.co',
+    trackingCodeId: 'pm-1', // Will be set via GTM variable
+    cookieName: 'pm_user_id',
+    cookieExpireDays: 90
+  };
+  
+ 
+  // ============================================
+  // UTILITY FUNCTIONS
+  // ============================================
+  
+  /**
+   * Generate UUID v4
+   */
+  function generateUUID() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+      var r = Math.random() * 16 | 0;
+      var v = c === 'x' ? r : (r & 0x3 | 0x8);
+      return v.toString(16);
+    });
+  }
+  
+  /**
+   * Get cookie value by name
+   */
+  function getCookie(name) {
+    var nameEQ = name + '=';
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+      if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+  }
+  
+  /**
+   * Set cookie with expiration
+   */
+  function setCookie(name, value, days) {
+    var expires = '';
+    if (days) {
+      var date = new Date();
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      expires = '; expires=' + date.toUTCString();
+    }
+    document.cookie = name + '=' + value + expires + '; path=/; SameSite=Lax';
+  }
+  
+  /**
+   * Get or create user_id
+   */
+  function getUserId() {
+    var userId = getCookie(CONFIG.cookieName);
+    if (!userId) {
+      userId = generateUUID();
+      setCookie(CONFIG.cookieName, userId, CONFIG.cookieExpireDays);
+      console.log('PaidMetrics: New user_id created:', userId);
+    } else {
+      console.log('PaidMetrics: Existing user_id found:', userId);
+    }
+    return userId;
+  }
+  
+  /**
+   * Extract GCLID from URL
+   */
+  function getGclid() {
+    var urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('gclid');
+  }
+  
+  /**
+   * Get current page URL
+   */
+  function getPageUrl() {
+    return window.location.href;
+  }
+  
+  // ============================================
+  // API CALLS
+  // ============================================
+  
+  /**
+   * Track page visit
+   */
+  function trackPageVisit(userId, gclid, pageUrl) {
+    var payload = {
+      tracking_code_id: CONFIG.trackingCodeId,
+      user_id: userId,
+      gclid: gclid,
+      page_url: pageUrl,
+      fingerprint: null
+    };
+    
+    console.log('PaidMetrics: Tracking page visit', payload);
+    
+    fetch(CONFIG.apiUrl + '/api/track', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    })
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      console.log('PaidMetrics: Page visit tracked successfully', data);
+    })
+    .catch(function(error) {
+      console.error('PaidMetrics: Error tracking page visit', error);
+    });
+  }
+  
+  /**
+   * Track conversion (form submission)
+   */
+  function trackConversion(userId, email, formData) {
+    var payload = {
+      tracking_code_id: CONFIG.trackingCodeId,
+      user_id: userId,
+      email: email,
+      gclid: null, // Not needed - will match via user_id in database
+      fingerprint: null,
+      form_data: formData ? JSON.stringify(formData) : null
+    };
+    
+    console.log('PaidMetrics: Tracking conversion', payload);
+    
+    fetch(CONFIG.apiUrl + '/api/convert', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    })
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(data) {
+      console.log('PaidMetrics: Conversion tracked successfully', data);
+    })
+    .catch(function(error) {
+      console.error('PaidMetrics: Error tracking conversion', error);
+    });
+  }
+  
+  // ============================================
+  // FORM TRACKING
+  // ============================================
+  
+  /**
+   * Extract email from form fields
+   */
+  function extractEmailFromForm(form) {
+    // Look for email input by type
+    var emailInput = form.querySelector('input[type="email"]');
+    if (emailInput && emailInput.value) {
+      return emailInput.value;
+    }
+    
+    // Look for email input by name attribute (common patterns)
+    var emailPatterns = ['email', 'Email', 'EMAIL', 'e-mail', 'userEmail', 'user_email'];
+    for (var i = 0; i < emailPatterns.length; i++) {
+      var input = form.querySelector('input[name="' + emailPatterns[i] + '"]');
+      if (input && input.value) {
+        return input.value;
+      }
+    }
+    
+    // Look for email input by id attribute
+    for (var j = 0; j < emailPatterns.length; j++) {
+      var inputById = form.querySelector('input[id="' + emailPatterns[j] + '"]');
+      if (inputById && inputById.value) {
+        return inputById.value;
+      }
+    }
+    
+    return null;
+  }
+  
+  /**
+   * Extract all form data as key-value pairs
+   */
+  function extractFormData(form) {
+    var formData = {};
+    var inputs = form.querySelectorAll('input, select, textarea');
+    
+    for (var i = 0; i < inputs.length; i++) {
+      var input = inputs[i];
+      var name = input.name || input.id;
+      
+      // Skip empty names and password fields
+      if (!name || input.type === 'password') {
+        continue;
+      }
+      
+      // Get value based on input type
+      if (input.type === 'checkbox' || input.type === 'radio') {
+        if (input.checked) {
+          formData[name] = input.value;
+        }
+      } else {
+        formData[name] = input.value;
+      }
+    }
+    
+    return formData;
+  }
+  
+  /**
+   * Handle form submission
+   */
+  function handleFormSubmit(event) {
+    var form = event.target;
+    
+    console.log('PaidMetrics: Form submitted, extracting data...');
+    
+    // Extract email from form
+    var email = extractEmailFromForm(form);
+    
+    if (!email) {
+      console.log('PaidMetrics: No email found in form, skipping conversion tracking');
+      return;
+    }
+    
+    console.log('PaidMetrics: Email found:', email);
+    
+    // Get user_id from cookie
+    var userId = getCookie(CONFIG.cookieName);
+    
+    if (!userId) {
+      console.warn('PaidMetrics: No user_id found, cannot track conversion');
+      return;
+    }
+    
+    // Extract all form data
+    var formData = extractFormData(form);
+    
+    // Track the conversion
+    trackConversion(userId, email, formData);
+  }
+  
+  /**
+   * Set up form tracking
+   */
+  function setupFormTracking() {
+    // Listen for all form submissions
+    document.addEventListener('submit', handleFormSubmit, true);
+    console.log('PaidMetrics: Form tracking initialized');
+  }
+  
+  /**
+ * Handle embedded form submissions (HubSpot, Tally)
+ */
+function handleEmbeddedFormSubmit(submission) {
+  console.log('PaidMetrics: Embedded form submitted:', submission.provider);
+  
+  var userId = getCookie(CONFIG.cookieName);
+  if (!userId) {
+    console.warn('PaidMetrics: No user_id found, cannot track conversion');
+    return;
+  }
+  
+  // Extract email from form data based on provider
+  var email = null;
+  var formData = {};
+  
+  if (submission.provider === 'hubspot') {
+    // HubSpot stores email in submission.formData array
+    for (var i = 0; i < submission.formData.length; i++) {
+      var field = submission.formData[i];
+      formData[field.name] = field.value;
+      if (field.name === 'email') {
+        email = field.value;
+      }
+    }
+  } else if (submission.provider === 'tally') {
+    // Tally stores data in submission.formData object
+    formData = submission.formData;
+    // Look for email field (Tally uses field IDs, need to check structure)
+    for (var key in formData) {
+      if (key.toLowerCase().includes('email') || formData[key].includes('@')) {
+        email = formData[key];
+        break;
+      }
+    }
+  }
+  
+  if (!email) {
+    console.log('PaidMetrics: No email found in embedded form');
+    return;
+  }
+  
+  trackConversion(userId, email, formData);
+}
+
+/**
+ * Listen for embedded form postMessage events
+ */
+function setupEmbeddedFormTracking() {
+  window.addEventListener('message', function(event) {
+    var data = event.data;
+    
+    // HubSpot forms
+    if (data.type === 'hsFormCallback' && data.eventName === 'onFormSubmitted') {
+      handleEmbeddedFormSubmit({
+        provider: 'hubspot',
+        formId: data.id,
+        formData: data.data
+      });
+    }
+    
+    // Tally forms
+    if (typeof data === 'string' && data.includes('Tally.FormSubmitted')) {
+      var payload = JSON.parse(data).payload;
+      handleEmbeddedFormSubmit({
+        provider: 'tally',
+        formId: payload.formId,
+        formData: payload
+      });
+    }
+  });
+  
+// HubSpot V4 forms
+window.addEventListener('hs-form-event:on-submission:success', function(event) {
+  if (typeof HubspotFormsV4 !== 'undefined') {
+    var hsform = HubspotFormsV4.getFormFromEvent(event);
+    if (hsform) {
+      hsform.getFormFieldValues().then(function(fieldValues) {
+        var formData = {};
+        for (var i = 0; i < fieldValues.length; i++) {
+          var field = fieldValues[i];
+          var key = field.name.split('/')[1] || field.name;
+          formData[key] = field.value;
+        }
+        
+        handleEmbeddedFormSubmit({
+          provider: 'hubspot',
+          formId: hsform.getFormId(),
+          formData: Object.keys(formData).map(function(key) {
+            return { name: key, value: formData[key] };
+          })
+        });
+      });
+    }
+  }
+});
+  
+  
+  console.log('PaidMetrics: Embedded form tracking initialized');
+}
+    
+  // ============================================
+  // INITIALIZATION
+  // ============================================
+  
+  /**
+   * Initialize tracking on page load
+   */
+  function init() {
+    console.log('PaidMetrics: Initializing tracker');
+    
+    // Get or create user_id (always generate/retrieve for form tracking later)
+    var userId = getUserId();
+    
+    // Get GCLID from URL (if present)
+    var gclid = getGclid();
+    
+    // Only track page visit if GCLID is present
+    if (gclid) {
+      var pageUrl = getPageUrl();
+      trackPageVisit(userId, gclid, pageUrl);
+    } else {
+      console.log('PaidMetrics: No GCLID found, skipping page visit tracking');
+    }
+    
+    // Set up form submission tracking
+    setupFormTracking();
+    setupEmbeddedFormTracking();
+    
+    console.log('PaidMetrics: Tracker initialized');
+  }
+  
+  // Run initialization
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+  
+})();
+  
+ // check if capturing gclid for ad blockers
+console.log('URL on load:', window.location.href);
+console.log('GCLID from URL:', new URLSearchParams(window.location.search).get('gclid')); 
+   // check if script loading for ad blockers
+  console.log('PaidMetrics tracker loaded successfully');
+</script>  
+
 {%= live_reload_dev_js %}
