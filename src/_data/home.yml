@@ -1,0 +1,78 @@
+hero:
+    title: Find and Fix Revenue Leaks in Your Growth Funnel
+    textarea: Most SaaS and lead-generation companies have conversion problems they don't even know exist. I help you identify and solve them.
+    button_text: "Book a free audit"
+features:
+    grid_1:
+      title: Your Growth Engine Has Revenue Leaks
+      textarea: |
+            **You're driving traffic. You're getting leads. But revenue isn't growing as fast as it should be.**
+            
+            **The problem:** Hidden conversion bottlenecks are bleeding revenue out of your funnel.
+            
+            Website visitors don't convert to leads. Maybe your messaging doesn't resonate. Or, your pricing page confuses prospects. Or, your signup flow has friction points.
+
+            If your SaaS offers a free trial — getting users to activate is difficult. Maybe your onboarding is overwhelming or too discrete. Users can't find value quickly. They abandon before experiencing your core benefit.
+
+            If you don't have the data or insights to know where to act or the resources to fix it.
+
+            **I can help.**
+background:
+  - name: google
+    years: 9
+    image: /images/svg/google.svg
+    image_alt: Google logo
+    textarea: >-
+      Worked with Europe's largest online brands to run ads, measure performance, and optimize for conversion.
+  - name: dropbox
+    years: 2
+    image: /images/svg/dropbox.svg
+    image_alt: Dropbox logo
+    textarea: >-
+      Senior manager on growth team. Ran dozens of experiments monthly adding 10s of millions in annualized revenue.
+  - name: leadfeeder
+    years: 2
+    image: /images/svg/leadfeeder.svg
+    image_alt: Leadfeeder logo
+    textarea: >-
+      Optimized free trial conversion rate. Promoted to head of growth. Took free trial signups from negative YOY growth to +100%.
+  - name: smb
+    years: 5
+    textarea: >-
+      Partnering with SMBs to dramatically grow their businesses.
+testimonials:
+  - name: Shoe-G Ueyama
+    text: >-
+      Deep knowledge and experience in increasing conversion rates. Also executes everything like a rhino on a steroid.
+    position: Senior Manager - Canva
+    image: /images/shoe-g-ueyama.jpg
+    image_alt: Shoe-G Ueyama portrait
+  - name: Andy Culligan
+    text: >-
+      Massively influential in our growth. Recommended to any organisation looking to scale their growth.
+    position: SaaS CMO
+    image: /images/andy-culligan-cropped.jpg
+    image_alt: Andy Culligan portrait
+  - name: Pekka Koskinen
+    text: >-
+       Very effective in improving the website conversions, very knowledgable about growth marketing, A/B testing and web analytics.
+    position: CEO, Leadfeeder
+    image: /images/pekka-koskinen-cropped.jpg
+    image_alt: Pekka Koskinen portrait
+results:
+  - result: +79%
+    type: SaaS
+    text: >-
+      Increase in free trial signups in 9 months.
+  - result: +$20m
+    type: SaaS
+    text: >-
+      Added $20m in revenue for a large SaaS company via A/B testing.
+  - result: +15K
+    type: SaaS
+    text: >-
+      Annualized increase in leads.
+  - result: 0-100%
+    type: SaaS
+    text: >-
+      Increase in free trial signups.
