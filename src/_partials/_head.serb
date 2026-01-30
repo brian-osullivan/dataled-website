@@ -30,9 +30,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   
   // Configuration
   var CONFIG = {
-   // apiUrl: 'https://tracking.dataled.co',
-    apiUrl: 'https://paidmetrics-tracker.brian-db5.workers.dev',
-    trackingCodeId: 'pm-1', // Will be set via GTM variable
+    apiUrl: 'https://tracking.dataled.co',
+    trackingCodeId: 'pm-1', 
     cookieName: 'pm_user_id',
     cookieExpireDays: 90
   };
