@@ -1,16 +1,6 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="icon" href="{{ site.metadata.favicon }}" type="image/x-icon" />
-<script>
-(function() {
-  // Execute immediately, don't wait for DOM
-  var gclid = new URLSearchParams(window.location.search).get('gclid');
-  if (gclid) {
-    document.cookie = 'pm_gclid=' + gclid + '; path=/; max-age=7776000; SameSite=Lax';
-  }
-})();
-</script>
-
 {%= seo %}
 
 <link rel="stylesheet" href="{%= webpack_path :css %}" />
@@ -97,10 +87,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   /**
    * Extract GCLID from URL
    */
-  function getGclid() {
-    var urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get('gclid');
+function getGclid() {
+  var urlParams = new URLSearchParams(window.location.search);
+  
+  // Try standard gclid first
+  var gclid = urlParams.get('gclid');
+  
+  // Fall back to backup parameter pgid if gclid not found
+  if (!gclid) {
+    gclid = urlParams.get('pgid');
+    if (gclid) {
+      console.log('PaidMetrics: Using backup parameter pgid');
+    }
   }
+  
+  return gclid;
+}
   
   /**
    * Get current page URL
