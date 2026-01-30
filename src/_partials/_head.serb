@@ -30,7 +30,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   
   // Configuration
   var CONFIG = {
-    apiUrl: 'https://tracking.dataled.co',
+    apiUrl: 'https://tracking-origin.dataled.co',
     trackingCodeId: 'pm-1', 
     cookieName: 'pm_user_id',
     cookieExpireDays: 90
